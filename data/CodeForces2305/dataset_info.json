@@ -1,0 +1,62 @@
+{
+  "citation": "",
+  "description": "",
+  "features": {
+    "task_id": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "prompt": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "test": {
+      "inputs": {
+        "feature": {
+          "dtype": "string",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      },
+      "outputs": {
+        "feature": {
+          "dtype": "string",
+          "_type": "Value"
+        },
+        "_type": "Sequence"
+      }
+    },
+    "question": {
+      "Input": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "Output": {
+        "dtype": "string",
+        "_type": "Value"
+      },
+      "Problem Description": {
+        "dtype": "string",
+        "_type": "Value"
+      }
+    },
+    "entry_point": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "difficulty": {
+      "dtype": "int64",
+      "_type": "Value"
+    },
+    "url": {
+      "dtype": "string",
+      "_type": "Value"
+    },
+    "note": {
+      "dtype": "string",
+      "_type": "Value"
+    }
+  },
+  "homepage": "",
+  "license": ""
+}

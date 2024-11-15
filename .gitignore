@@ -1,0 +1,13 @@
+.vscode
+*.out
+*.log
+test.*
+/outputs/*
+__pycache__
+*/__pycache__
+/*/__pycache__
+output*
+results/*
+log/*
+build/*
+.DS_Store
