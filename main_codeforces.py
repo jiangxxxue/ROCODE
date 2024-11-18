@@ -12,7 +12,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from PA_tools import PA
 from tire_tree import TireTree
 from detect_repeat import detect_repeat_pattern
-from utils import load_dataset_my, load_dataset_map_my, calculate_positional_entropy, is_complete, process_indented_block, add_break_if_in_while_block
+from utils import load_dataset_my, calculate_positional_entropy, is_complete, process_indented_block, add_break_if_in_while_block
 from config import MAX_GENERATION_LENGTH, MAX_ATTEMPT_NUM, TOKEN_BUDGET
 
 import warnings
@@ -206,20 +206,12 @@ def pipeline(args, dataset, except_tasks, output_filepath):
         if (task_id in except_tasks):
             continue
 
-        dataset_map = load_dataset_map_my(args.dataset)
-
-        if task_id == 70:
-            # The last test case of Task 70 blocks execution, causing time out
-            input_pair, output_pair = dataset_map[dataset["task_id"][i]]['test']['inputs'][:-1], dataset_map[dataset["task_id"][i]]['test']['outputs'][:-1]
-        else:
-            input_pair, output_pair = dataset_map[dataset["task_id"][i]]['test']['inputs'], dataset_map[dataset["task_id"][i]]['test']['outputs']
-        max_num = math.ceil(len(input_pair) * (1/ 2))
-        input_pair, output_pair = input_pair[len(input_pair)-max_num:], output_pair[len(output_pair)-max_num:]
+        input_pair, output_pair = dataset['public_test'][i]['inputs'], dataset['public_test'][i]['outputs']
         input_pair = [i.replace('\n', '\\n') for i in input_pair]
         output_pair = [o.replace('\n', '\\n') for o in output_pair]
 
         split_prompt = dataset["prompt"][i].split("'''")
-        split_prompt[1] = split_prompt[1] +"\nFor Example:"+ f'\nsolution("{input_pair[-1]}") == "{output_pair[-1]}"\n' + '\nNote:\n' + dataset_map[dataset["task_id"][i]]['note'] + '\n'
+        split_prompt[1] = split_prompt[1] +"\nFor Example:"+ f'\nsolution("{input_pair[-1]}") == "{output_pair[-1]}"\n' + '\nNote:\n' + dataset['note'][i] + '\n'
         split_prompt[-1] = '\ndef solution(input_string: str) -> str:\n'
         requirement = "'''".join(split_prompt)
         requirement = requirement.rstrip() + "\n"

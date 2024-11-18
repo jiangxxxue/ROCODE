@@ -44,7 +44,7 @@ with open(args.input_path, 'r') as f:
             line["test"] = raw_dataset_map[line["task_id"]]['test']
         elif args.dataset == "CodeForces2305":
             line["entry_point"] = 'solution'
-            input_output = raw_dataset_map[int(line["task_id"].split("/")[1])]['test']
+            input_output = raw_dataset_map[line["task_id"]]['test']
             line["test"] =  build_test_method_for_CodeForces(input_output)
             line["completion"] = post_process_code_for_CodeForces(prompt=line['prompt'], code=line['completion'], func_name=line['entry_point'], m_indent='    ')
             line["prompt"] = ""            
