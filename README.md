@@ -2,7 +2,9 @@
 
 This repository contains the source code and data for the paper "[ROCODE: Integrating Backtracking Mechanism and Program Analysis in Large Language Models for Code Generation]( https://arxiv.org/abs/2411.07112)."
 
-![ROCODE](figures/rocode.png)
+<p align="center">
+  <img src="figures/rocode.png" alt="ROCODE" style="width:75%;">
+</p>
 
 
 ## Data Sources
