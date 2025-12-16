@@ -2,6 +2,9 @@
 
 This repository contains the source code and data for the paper "[ROCODE: Integrating Backtracking Mechanism and Program Analysis in Large Language Models for Code Generation]( https://arxiv.org/abs/2411.07112)."
 
+![ROCODE](figures/rocode.png)
+
+
 ## Data Sources
 Our approach utilizes public datasets such as [HumanEval](https://huggingface.co/datasets/openai/openai_humaneval), [MBPP](https://huggingface.co/datasets/google-research-datasets/mbpp), and [CodeForces2305](https://github.com/YihongDong/CDD-TED4LLMs/tree/main/CodeForces2305), and employs Large Language Models such as [CodeLlama](https://huggingface.co/codellama), [CodeGen](https://github.com/salesforce/CodeGen), and [Llama](https://huggingface.co/meta-llama).
 
